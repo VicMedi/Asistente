@@ -1,5 +1,3 @@
-from multiprocessing.reduction import duplicate
-
 import flet as ft
 from borrar_duplicados import *
 from organizar_archivos import *
