@@ -28,7 +28,10 @@ jobs:
 
       - name: ⚙️ Construir ejecutable para macOS
         run: |
-          pyinstaller --onefile --windowed app.py
+          pyinstaller --onefile \
+          --add-data "borrar_duplicados.py:." \
+          --add-data "organizar_archivos.py:." \
+          app.py
           ls -l dist
 
       - name: 📤 Subir ejecutable como Artifact
