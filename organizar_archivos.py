@@ -4,7 +4,7 @@ import shutil
 def organize_folder(folder):
     files_type = {
         'Imagenes': ['.jpeg', '.jpg', '.png', '.gif'],
-        'Video': ['.mov', '.mp4', 'mkv', 'avi'],
+        'Video': ['.mov', '.mp4', '.mkv', '.avi'],
         'Audio': ['.mp3', '.wav', '.aiff'],
         'Documentos': ['.pdf', '.doc', '.docx'],
         'Excel': ['.xlsx', '.xls', '.xlsm'],
