@@ -1,4 +1,4 @@
-name: Build macOS app
+name: Build macOS Executable
 
 on:
   push:
@@ -11,23 +11,26 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: 📥 Clonar el repositorio
+        uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: 🐍 Configurar Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.13.5
+          python-version: '3.13.5'
 
-      - name: Install dependencies
+      - name: 📦 Instalar dependencias
         run: |
+          python -m pip install --upgrade pip
           pip install pyinstaller flet
+          pip install -r requirements.txt || true
 
-      - name: Build .app bundle
+      - name: ⚙️ Construir ejecutable para macOS
         run: |
           pyinstaller --windowed --noconsole --icon=mamut.icns app.py
 
-      - name: Upload artifact
+      - name: 📤 Subir ejecutable como Artifact
         uses: actions/upload-artifact@v4
         with:
           name: macOS-app
-          path: dist/app.app
+          path: dist/app_macos
